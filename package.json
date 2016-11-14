@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "stylelint-rscss": "^0.3.2"
+  }
+}
