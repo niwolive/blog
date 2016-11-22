@@ -1,0 +1,64 @@
+<!doctype html>
+<head>
+  <title>Code with flair</title>
+  <link rel="stylesheet" src="layout.css" />
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <hgroup>
+    <h1>Learn to #codewithflair</h1>
+    <h2>with Nicolas Wormser</h2>
+    <h3>I give meaning to your code by challenging you where I fall short.</h3>
+  </hgroup>
+  <nav>
+    Languages: 
+    <ul>
+      <li class="selected">ECMAScript</li>
+      <li>Elixir (soon)</li>
+    </ul>
+  </nav>
+
+  <section id="app" class="ecmascript">
+    <post-entry v-for="post in postList" v-bind:post="post"></post-entry>
+  </section>
+
+  <script type="text/javascript">
+    const postList = [
+      { title: '#codingwithflair - what does it even mean?',
+        brief: '', 
+        content: ' Commitment to make your code as expressive as possible.  Encapsulating meaning and intention within your code.  Using appropriate programming concepts when appropriate. Functionnal programming for transformation.  Having flair is preventing code smell '},
+      { title: 'Expressing the « obvious » - with modifiers',
+        brief: 'Code is expressive - or has <em>flair</em>, when it grabs on all opportunities a language offers to communicate what each and every statement does. Modern Javascript includes three keywords you can use to determine the scope and mutability of a variable. These are `var`, `let` and `const`, and can also be reffered to as `modifiers`.', 
+        content: 'Give flair to this code by using the most revelant variable modifier.  <pre> </pre> <button>Explain</button>'},
+    ];
+
+    Vue.component('post-entry',{
+      props: ['post'],
+      template: `
+        <article itemscope> 
+          <hgroup>
+            <h2>{{ post.title }}</h2>
+            <details>
+              <summary><a href="https://codewithflair/general" rel="tag">#general</a></summary>
+              <time itemprop="pubTime" datetime=""></time>
+              <time itemprop="modTime" datetime=""></time>
+            </details>
+          </hgroup>
+          <p class="brief">
+            {{ post.brief }}
+          </p>
+          <p>
+            {{ post.content }}
+          </p>
+        </article>`
+    });
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        postList: postList
+      }
+    });
+
+  </script>
+</body>
