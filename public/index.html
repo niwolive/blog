@@ -5,18 +5,11 @@
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
-  <cwf-app id="cwf">
-    <cwf-heading></cwf-heading>
-    <cwf-main></cwf-main>
-    <cwf-footer></cwf-footer>
-  </cwf-app>
+  <cwf-heading id="cwf-heading"></cwf-heading>
+  <cwf-main id="cwf-main"></cwf-main>
+  <cwf-footer id="cwf-footer"></cwf-footer>
 
   <script type="text/javascript">
-    //- Main 
-    Vue.component('cwf-app', {
-      template:  `<div><slot></slot></div>`
-    });
-
     //- Heading
     Vue.component('cwf-heading', {
       template:  `<header>
@@ -81,8 +74,16 @@
                   </article>`
     });
 
-    var vm = new Vue({
-      el: '#cwf',
+
+    // Create vues for each of the main components
+    const heading = new Vue({
+      el: '#cwf-heading',
+    });
+    const main = new Vue({
+      el: '#cwf-main',
+    });
+    const footer = new Vue({
+      el: '#cwf-footer',
     });
 
   </script>
