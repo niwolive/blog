@@ -9,30 +9,38 @@
   <cwf-main id="cwf-main"></cwf-main>
   <cwf-footer id="cwf-footer"></cwf-footer>
 
+  <!-- Heading component -->
+  <script type="text/x-template" id="cwf-heading-template">
+    <header>
+      <hgroup>
+        <h1>Learn to #codewithflair</h1>
+        <h2>with Nicolas Wormser</h2>
+        <h3>I give meaning to your code by challenging you where I fall short.</h3>
+      </hgroup>
+      <nav>
+        <p>Languages:</p>
+        <ul>
+          <li class="selected">ECMAScript</li>
+          <li>Elixir (soon)</li>
+        </ul>
+      </nav>
+    </header>
+  </script>
   <script type="text/javascript">
-    //- Heading
     Vue.component('cwf-heading', {
-      template:  `<header>
-                    <hgroup>
-                      <h1>Learn to #codewithflair</h1>
-                      <h2>with Nicolas Wormser</h2>
-                      <h3>I give meaning to your code by challenging you where I fall short.</h3>
-                    </hgroup>
-                    <nav>
-                      <p>Languages:</p>
-                      <ul>
-                        <li class="selected">ECMAScript</li>
-                        <li>Elixir (soon)</li>
-                      </ul>
-                    </nav>
-                  </header>`
+      template: '#cwf-heading-template'
     });
+  </script>
 
-    //- Main
+  <!-- Main component -->
+  <script type="text/x-template" id="cwf-main-template">
+    <section id="app" class="ecmascript">
+      <post-entry v-for="post in postList" v-bind:post="post"></post-entry>
+    </section>
+  </script>
+  <script type="text/javascript">
     Vue.component('cwf-main', {
-      template:  `<section id="app" class="ecmascript">
-                    <post-entry v-for="post in postList" v-bind:post="post"></post-entry>
-                  </section>`,
+      template: '#cwf-main-template',
       data: function(){
         return {
           postList: [
@@ -46,34 +54,42 @@
         }
       }
     });
+  </script>
 
-    //- Footer 
+  <!-- Footer component -->
+  <script type="text/x-template" id="cwf-footer-template">
+    <footer>Crafted with gratitude by @nicolaswormser</footer>
+  </script>
+  <script type="text/javascript">
     Vue.component('cwf-footer', {
-      template:  `<footer>Crafted with gratitude by @nicolaswormser</footer>`
+      template: '#cwf-footer-template'
     });
+  </script>
 
-
-    //- Post entry
-    Vue.component('post-entry',{
+  <!-- Post entry component -->
+  <script type="text/x-template" id="post-entry-template">
+    <article itemscope> 
+      <hgroup>
+        <h2>{{ post.title }}</h2>
+        <details>
+          <summary><a href="https://codewithflair/general" rel="tag">#general</a></summary>
+          <time itemprop="pubTime" datetime=""></time>
+          <time itemprop="modTime" datetime=""></time>
+        </details>
+      </hgroup>
+      <p class="brief">
+        {{ post.brief }}
+      </p>
+      <p>
+        {{ post.content }}
+      </p>
+    </article>
+  </script>
+  <script type="text/javascript">
+    Vue.component('post-entry', {
       props: ['post'],
-      template:  `<article itemscope> 
-                    <hgroup>
-                      <h2>{{ post.title }}</h2>
-                      <details>
-                        <summary><a href="https://codewithflair/general" rel="tag">#general</a></summary>
-                        <time itemprop="pubTime" datetime=""></time>
-                        <time itemprop="modTime" datetime=""></time>
-                      </details>
-                    </hgroup>
-                    <p class="brief">
-                      {{ post.brief }}
-                    </p>
-                    <p>
-                      {{ post.content }}
-                    </p>
-                  </article>`
+      template: '#post-entry-template'
     });
-
 
     // Create vues for each of the main components
     const heading = new Vue({
