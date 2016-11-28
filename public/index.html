@@ -1,7 +1,8 @@
 <!doctype html>
 <head>
   <title>Code with flair</title>
-  <link rel="stylesheet" src="layout.css" />
+  <link rel="stylesheet" href="layout.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
@@ -13,17 +14,10 @@
   <script type="text/x-template" id="cwf-heading-template">
     <header>
       <hgroup>
-        <h1>Learn to #codewithflair</h1>
-        <h2>with Nicolas Wormser</h2>
-        <h3>I give meaning to your code by challenging you where I fall short.</h3>
+        <h1>Learn to code with <em>flair</em></h1>
+        <p>I improve your code by challenging you where I fall short.</p>
+        <p>with Nicolas Wormser</p>
       </hgroup>
-      <nav>
-        <p>Languages:</p>
-        <ul>
-          <li class="selected">ECMAScript</li>
-          <li>Elixir (soon)</li>
-        </ul>
-      </nav>
     </header>
   </script>
   <script type="text/javascript">
@@ -34,7 +28,7 @@
 
   <!-- Main component -->
   <script type="text/x-template" id="cwf-main-template">
-    <section id="app" class="ecmascript">
+    <section class="cwf-container">
       <post-entry v-for="post in postList" v-bind:post="post"></post-entry>
     </section>
   </script>
@@ -71,11 +65,6 @@
     <article itemscope> 
       <hgroup>
         <h2>{{ post.title }}</h2>
-        <details>
-          <summary><a href="https://codewithflair/general" rel="tag">#general</a></summary>
-          <time itemprop="pubTime" datetime=""></time>
-          <time itemprop="modTime" datetime=""></time>
-        </details>
       </hgroup>
       <p class="brief">
         {{ post.brief }}

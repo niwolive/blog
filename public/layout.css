@@ -1,0 +1,50 @@
+/**
+ * Layout-level styles
+ */
+body {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: 'Open Sans';
+  color: #404040;
+}
+
+/**
+ * Component: cwf-heading
+ */
+#cwf-heading {
+  text-align: center;
+}
+#cwf-heading > hgroup > p { 
+  font-size: 1.3rem;
+}
+#cwf-heading > hgroup > h1 > em { 
+  font-size: 7rem;
+  font-style:normal;
+}
+
+/**
+ * Component: cwf-main
+ */
+#cwf-main {
+  text-align: justify;
+}
+.cwf-container > article {
+  margin-top: 100px;
+}
+
+/**
+ * Component: cwf-footer
+ */
+#cwf-footer {
+  margin-top: 100px;
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  body > * {
+    width: 980px; 
+  }
+}
