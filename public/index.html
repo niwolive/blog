@@ -66,12 +66,8 @@
       <hgroup>
         <h2>{{ post.title }}</h2>
       </hgroup>
-      <p class="brief">
-        {{ post.brief }}
-      </p>
-      <p>
-        {{ post.content }}
-      </p>
+      <p class="brief" v-html="post.brief"></p>
+      <p v-html="post.content"></p>
     </article>
   </script>
   <script type="text/javascript">
