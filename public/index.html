@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="layout.css" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/markdown-it/8.1.0/markdown-it.min.js"></script>
+  <script src="./markdown-it.min.js"></script>
 </head>
 <body>
   <cwf-heading id="cwf-heading"></cwf-heading>
@@ -52,7 +54,7 @@
 
   <!-- Footer component -->
   <script type="text/x-template" id="cwf-footer-template">
-    <footer>Crafted with gratitude by @nicolaswormser</footer>
+    <footer>Made with gratitude by @nicolaswormser</footer>
   </script>
   <script type="text/javascript">
     Vue.component('cwf-footer', {
@@ -66,13 +68,20 @@
       <hgroup>
         <h2>{{ post.title }}</h2>
       </hgroup>
-      <p class="brief" v-html="post.brief"></p>
-      <p v-html="post.content"></p>
+      <p class="brief" v-html="toMarkdown(post.brief)"></p>
+      <p v-html="toMarkdown(post.content)"></p>
     </article>
   </script>
   <script type="text/javascript">
+    const md = window.markdownit();
+
     Vue.component('post-entry', {
       props: ['post'],
+      methods: {
+        toMarkdown: function ( input ){
+          return md.render(input);
+        },
+      },
       template: '#post-entry-template'
     });
 
