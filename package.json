@@ -1,5 +1,14 @@
 {
+  "private": true,
+  "name": "codewithflair.org",
+  "scripts": {
+    "dev": "vbuild --dev",
+    "build": "vbuild"
+  },
+  "devDependencies": {
+    "vbuild": "^4.1.6"
+  },
   "dependencies": {
-    "stylelint-rscss": "^0.3.2"
+    "markdown-it": "^8.1.0"
   }
 }
