@@ -1,11 +1,19 @@
 <template>
   <section class="cwf-container">
-    <post-entry v-for="post in postList" v-bind:post="post"></post-entry>
+    <post-entry v-bind:post="postList[0]">
+      <post1></post1>
+    </post-entry>
+    <post-entry v-bind:post="postList[1]">
+      <post2></post2>
+    </post-entry>
   </section>
 </template>
 
 <script>
   import PostEntry from './PostEntry.vue'
+  const slug = require('slug');
+  const post1 = require('../posts/test.md');
+  const post2 = require('../posts/test.md');
 
   export default {
     data: function(){
@@ -21,7 +29,9 @@
       }
     },
     components: {
-      PostEntry
+      PostEntry,
+      post1,
+      post2
     }
   }
 </script>
