@@ -11,9 +11,8 @@
 
 <script>
   import PostEntry from './PostEntry.vue'
-  const slug = require('slug');
-  const post1 = require('../posts/test.md');
-  const post2 = require('../posts/test.md');
+  import post1 from '../posts/test.md'
+  import post2 from '../posts/test.md'
 
   export default {
     data: function(){
@@ -29,9 +28,9 @@
       }
     },
     components: {
-      PostEntry,
-      post1,
-      post2
+     PostEntry,
+     post1,
+     post2
     }
   }
 </script>

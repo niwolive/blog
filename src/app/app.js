@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-export default new Vue({
+const root = new Vue({
   ...App
 });
+
+root.$mount('#app')
